@@ -1,0 +1,33 @@
+<div class="utils-container">
+    <a href="/admin/categories/add" class="btn btn-primary">Add new category</a>
+</div>
+
+<table class="table table-condensed">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Catergory name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for (let i = 0; i < categories.length; i++) { %>
+            <tr>
+                <td>
+                    <%= categories[i].Id %>
+                </td>
+                <td>
+                    <%= categories[i].catergoryname %>
+                </td>
+                <td>   
+                    <% let detailURL = '/admin/categories/' + categories[i].Id + '/detail' %>
+                    <% let editURL = '/admin/categories/' + categories[i].Id + '/edit' %>
+                    <% let deleteURL = '/admin/categories/' + categories[i].Id + '/delete' %>
+
+                    <a class="btn btn-success" href="<%= detailURL %>">View detail</a>
+                    <a class="btn btn-primary" href="<%= editURL %>">Edit</a>
+                </td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>

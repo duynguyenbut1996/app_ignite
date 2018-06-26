@@ -1,0 +1,46 @@
+<table class="table table-condensed">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Product name</th>
+            <th>Cost</th>
+            <th>Status</th>
+            <th>TimeUp</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for (let i = 0; i < products.length; i++) { %>
+            <tr>
+                <td>
+                    <%= products[i].Id %>
+                </td>
+                <td>
+                    <%= products[i].ProductName %>
+                </td>
+                <td>
+                    <%= products[i].Cost %>
+                </td>
+                <td>
+                    <!-- 0. new & waiting for processing -->
+                    <%if (products[i].status == 0) { %>
+                        New
+                    <!-- 1. approve -->
+                    <% } else if (products[i].status == 1) { %>
+                        Approve
+                    <!-- 2. reject -->
+                    <% } else if (products[i].status == 2) { %>
+                        Reject
+                    <% } %>
+                </td>
+                <td>
+                    <% let date = new Date(products[i].TimeUp) %>
+                    <%= date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear() %>
+                </td>
+                <td>
+
+                </td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>

@@ -1,0 +1,16 @@
+<h2 class="title">Create new category</h2>
+
+<form method="post" action="<%= category ? '/admin/categories/edit' : '/admin/categories/add' %>">
+
+    <div class="form-group">
+        <label for="">Category Id</label>
+        <input type="text" class="form-control" name="id" value="<%= category ? category.Id : '' %>">
+    </div>
+    
+    <div class="form-group">
+        <label for="">Category name</label>
+        <input type="text" class="form-control" name="category_name" value="<%= category ? category.catergoryname : '' %>">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
